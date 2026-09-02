@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenApAgiE – Laboratoire de Génétique Appliquée | UABT Tlemcen</title>
-    <meta name="description" content="Laboratoire Applied Genetic in Agriculture, Ecology and Public Health (GenApAgiE) – Université Abou Bekr Belkaïd de Tlemcen, Algérie. Génétique des populations, biodiversité, agriculture durable, sécurité alimentaire, One Health.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GenApAgiE – Laboratoire de Génétique Appliquée</title>
+    <meta name="description" content="Laboratoire Applied Genetic in Agriculture, Ecology and Public Health – Université de Tlemcen. Recherche en génétique des populations, biodiversité, One Health."/>
     <!-- Open Graph -->
-    <meta property="og:title" content="GenApAgiE – Génétique Appliquée pour l'Agriculture, l'Écologie et la Santé Publique">
-    <meta property="og:description" content="Laboratoire de recherche en génétique des populations, biodiversité et One Health – UABT Tlemcen, Algérie.">
-    <meta property="og:type" content="website">
-    <meta name="robots" content="index, follow">
-    <!-- Tailwind CSS CDN -->
+    <meta property="og:title" content="GenApAgiE – Génétique, Biodiversité, Santé Publique" />
+    <meta property="og:description" content="Laboratoire de recherche de l'Université de Tlemcen (Algérie) dédié à la génétique appliquée." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rahim112008.github.io/Genapagie/" />
+    <meta name="robots" content="index, follow" />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <style>
-        /* ----- VARIABLES & RESET ----- */
+        /* Variables & Reset */
         :root {
             --primary: #0A2540;
             --secondary: #2A9D8F;
@@ -29,77 +29,68 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg-light);
             color: var(--text-dark);
             transition: background 0.3s, color 0.3s;
         }
-        /* Dark mode */
         body.dark {
             --bg-light: #0b0f1a;
             --bg-card: #1a1f2e;
             --text-dark: #e9ecef;
             --text-muted: #adb5bd;
-            background: var(--bg-light);
-            color: var(--text-dark);
         }
         body.dark .card { background: var(--bg-card); }
-        body.dark .navbar { background: rgba(10, 37, 64, 0.95) !important; }
+        body.dark .navbar { background: rgba(10,37,64,0.95) !important; }
         body.dark .footer { background: #0a0e17; }
-        /* Typo & helpers */
+
         .h2-underline::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 70px;
             height: 4px;
             background: var(--secondary);
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
             border-radius: 2px;
         }
         .card {
             background: white;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-left: 4px solid var(--secondary);
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid var(--secondary);
         }
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
         }
-        body.dark .card { box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-left-color: var(--teal); }
-        body.dark .card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.6); }
+        body.dark .card { box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-left-color: var(--teal); }
         .btn-primary {
             background: var(--secondary);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.8rem 2.2rem;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.3s;
             display: inline-block;
+            box-shadow: 0 4px 14px rgba(42,157,143,0.3);
         }
-        .btn-primary:hover {
-            background: #1e7a6e;
-            transform: scale(1.02);
-        }
+        .btn-primary:hover { background: #1e7a6e; transform: scale(1.03); }
         .btn-outline {
             border: 2px solid white;
             color: white;
             padding: 0.7rem 2rem;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.2s;
-            display: inline-block;
+            transition: all 0.3s;
         }
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-        }
+        .btn-outline:hover { background: white; color: var(--primary); }
+
         .hero-gradient {
             background: linear-gradient(135deg, var(--primary), #1B4332, var(--teal));
             background-size: 300% 300%;
-            animation: gradientShift 14s ease infinite;
+            animation: gradientShift 16s ease infinite;
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -108,90 +99,48 @@
         }
         .fade-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
         }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--secondary);
         }
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
+        /* Hamburger */
+        .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
         .hamburger span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background: white;
-            border-radius: 2px;
-            transition: 0.3s;
+            display: block; width: 28px; height: 3px;
+            background: white; border-radius: 2px; transition: 0.3s;
         }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        .nav-menu { display: flex; gap: 2rem; align-items: center; }
         @media (max-width: 1023px) {
             .nav-menu {
-                display: none;
-                flex-direction: column;
-                background: var(--primary);
-                padding: 1.5rem;
-                border-radius: 1rem;
-                position: absolute;
-                top: 70px;
-                right: 1rem;
-                width: 220px;
-                gap: 1rem;
+                display: none; flex-direction: column; background: var(--primary);
+                padding: 1.5rem; border-radius: 1rem; position: absolute;
+                top: 70px; right: 1rem; width: 220px; gap: 1rem;
                 box-shadow: 0 16px 40px rgba(0,0,0,0.3);
             }
             .nav-menu.open { display: flex; }
             .nav-menu a { color: white !important; }
         }
         .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+            justify-content: center; align-items: center; z-index: 1000;
         }
         .modal-overlay.active { display: flex; }
         .modal-content {
-            background: white;
-            max-width: 600px;
-            width: 90%;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            border-top: 6px solid var(--secondary);
+            background: white; max-width: 600px; width: 90%; padding: 2rem;
+            border-radius: 1.5rem; max-height: 80vh; overflow-y: auto;
+            position: relative; border-top: 6px solid var(--secondary);
         }
         body.dark .modal-content { background: #1a1f2e; color: #e9ecef; }
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.8rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-        }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.8rem; cursor: pointer; background: none; border: none; color: var(--text-muted); }
         .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
         .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
@@ -203,37 +152,53 @@
             .grid-4 { grid-template-columns: repeat(2,1fr); }
         }
         .filter-btn {
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            border: 1px solid var(--secondary);
-            background: transparent;
-            color: var(--secondary);
-            font-weight: 500;
-            cursor: pointer;
+            padding: 0.4rem 1.2rem; border-radius: 50px;
+            border: 1px solid var(--secondary); background: transparent;
+            color: var(--secondary); font-weight: 500; cursor: pointer;
             transition: 0.2s;
         }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--secondary);
-            color: white;
-        }
+        .filter-btn.active, .filter-btn:hover { background: var(--secondary); color: white; }
         .icon-green { color: var(--secondary); }
         .icon-teal { color: var(--teal); }
         .icon-accent { color: var(--accent); }
+        .badge-real {
+            display:inline-block; font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.03em; color: var(--secondary);
+            border: 1px solid var(--secondary); border-radius: 50px;
+            padding: 0.1rem 0.6rem; margin-left: 0.5rem;
+        }
+
+        /* Gallery grid */
+        .gallery-grid img {
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .photo-note {
+            font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;
+        }
+        /* Parallax effect (simple) */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
 
 <!-- ========== HEADER ========== -->
-<header class="navbar fixed top-0 w-full z-50" style="background: rgba(10,37,64,0.92); backdrop-filter: blur(6px);">
+<header class="navbar fixed top-0 w-full z-50" style="background: rgba(10,37,64,0.92); backdrop-filter: blur(8px);">
     <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#" class="flex items-center gap-2 text-white font-bold text-xl">
-            <!-- Logo : double hélice + feuille -->
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M6 34 L34 6 M34 34 L6 6" stroke="#2A9D8F" stroke-width="2"/>
                 <circle cx="20" cy="20" r="12" stroke="#FFB703" stroke-width="1.5"/>
                 <path d="M20 8 L20 32 M8 20 L32 20" stroke="#00B4D8" stroke-width="1.2"/>
                 <path d="M14 14 L26 26 M26 14 L14 26" stroke="#2A9D8F" stroke-width="1.2" opacity="0.6"/>
-                <!-- Feuille -->
                 <path d="M28 28 Q34 22 28 16 Q22 22 28 28Z" fill="#2A9D8F" opacity="0.4"/>
             </svg>
             <span class="hidden sm:inline">Gen<span style="color:#2A9D8F;">ApAgi</span>E</span>
@@ -245,10 +210,11 @@
                 <li><a href="#research" class="text-white/80 hover:text-white transition">Recherche</a></li>
                 <li><a href="#team" class="text-white/80 hover:text-white transition">Équipe</a></li>
                 <li><a href="#publications" class="text-white/80 hover:text-white transition">Publications</a></li>
-                <li><a href="#events" class="text-white/80 hover:text-white transition">Événements</a></li>
+                <li><a href="#news" class="text-white/80 hover:text-white transition">Actualités</a></li>
+                <li><a href="#gallery" class="text-white/80 hover:text-white transition">Galerie</a></li>
                 <li><a href="#contact" class="text-white/80 hover:text-white transition">Contact</a></li>
                 <li>
-                    <button id="darkToggle" class="text-white/80 hover:text-white text-xl" aria-label="Basculer le mode sombre">
+                    <button id="darkToggle" class="text-white/80 hover:text-white text-xl" aria-label="Dark mode">
                         <span id="darkIcon">☀️</span>
                     </button>
                 </li>
@@ -273,8 +239,8 @@
                     Caractérisation génétique des races locales, sécurité alimentaire, services écosystémiques et santé humaine dans une approche <span class="font-bold text-[#FFB703]">One Health</span>.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#research" class="btn-primary">Découvrir nos axes</a>
-                    <a href="#careers" class="btn-outline">Nous rejoindre</a>
+                    <a href="#research" class="btn-primary">Explorer nos axes</a>
+                    <a href="#publications" class="btn-outline">Nos publications</a>
                 </div>
             </div>
             <div class="hidden md:flex justify-center">
@@ -308,23 +274,25 @@
                     <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Équipes de recherche</div>
                 </div>
                 <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="52">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Articles publiés</div>
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Publications listées</div>
                 </div>
                 <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="539">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Citations indexées</div>
+                    <div class="stat-number" data-target="1884">0</div>
+                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Citations (Google Scholar)</div>
                 </div>
             </div>
+            <p class="text-center text-xs text-gray-400 dark:text-gray-500 mt-4">
+                Citations du Pr. Gaouar d'après son profil Google Scholar public — à mettre à jour régulièrement.
+            </p>
         </div>
     </section>
 
-    <!-- ========== RECHERCHE ========== -->
+    <!-- ========== RESEARCH ========== -->
     <section id="research" class="py-20">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold h2-underline">Axes de recherche</h2>
             <div class="grid-2 mt-12">
-                <!-- Axe 1 -->
                 <div class="card fade-up border-l-4 border-[#2A9D8F]">
                     <div class="text-4xl mb-4 icon-green">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 21h16.5M12 3.75v10.5M6 12l6-6 6 6M6 12l-3 3m15-3l3 3"/></svg>
@@ -333,7 +301,6 @@
                     <p class="text-gray-600 dark:text-gray-300 mt-2">Impact de la perte de biodiversité sur les agrosystèmes, caractérisation génétique des races locales (ovins, dromadaires, canins), conservation des ressources génétiques.</p>
                     <button class="text-[#2A9D8F] font-semibold mt-4 open-modal" data-modal="modal1">En savoir plus →</button>
                 </div>
-                <!-- Axe 2 -->
                 <div class="card fade-up border-l-4 border-[#00B4D8]">
                     <div class="text-4xl mb-4 icon-teal">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6.75 6.75L21.75 6M12 3.75v10.5"/></svg>
@@ -342,7 +309,6 @@
                     <p class="text-gray-600 dark:text-gray-300 mt-2">Lien entre diversité alimentaire, qualité nutritionnelle et santé des populations. Études sur le lait, la viande et les produits locaux.</p>
                     <button class="text-[#00B4D8] font-semibold mt-4 open-modal" data-modal="modal2">En savoir plus →</button>
                 </div>
-                <!-- Axe 3 -->
                 <div class="card fade-up border-l-4 border-[#FFB703] md:col-span-2">
                     <div class="text-4xl mb-4 icon-accent">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -355,7 +321,7 @@
         </div>
     </section>
 
-    <!-- ========== ÉQUIPE ========== -->
+    <!-- ========== TEAM ========== -->
     <section id="team" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold h2-underline">Notre équipe</h2>
@@ -366,68 +332,55 @@
                 <button class="filter-btn" data-filter="collaborateur">Collaborateurs</button>
             </div>
             <div class="grid-3 mt-8" id="teamGrid"></div>
+            <p class="photo-note">Photos d'équipe : avatars générés à partir des noms en attendant vos vraies photos (voir note en fin de page pour les remplacer facilement).</p>
         </div>
     </section>
 
     <!-- ========== PUBLICATIONS ========== -->
     <section id="publications" class="py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Publications récentes</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">52 articles · 539 citations indexées</p>
-            <div class="mt-10 space-y-6" id="pubList">
-                <div class="text-center text-gray-400">Chargement des publications...</div>
+            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Publications</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Sélection de publications réelles du Pr. Gaouar et de ses co-auteurs (2015–2024), vérifiées sur Google Scholar, PubMed/DOI et les sites des éditeurs.</p>
+            <!-- Filtres publications -->
+            <div class="flex flex-wrap gap-3 mt-4">
+                <button class="filter-btn active" data-pubfilter="all">Toutes</button>
+                <button class="filter-btn" data-pubfilter="2024">2024</button>
+                <button class="filter-btn" data-pubfilter="2023">2023</button>
+                <button class="filter-btn" data-pubfilter="2021">2021</button>
+                <button class="filter-btn" data-pubfilter="2018">2018</button>
+                <button class="filter-btn" data-pubfilter="2016">2016</button>
+                <button class="filter-btn" data-pubfilter="2015">2015</button>
+            </div>
+            <div class="mt-8 space-y-6" id="pubList">
+                <div class="text-center text-gray-400">Chargement...</div>
             </div>
         </div>
     </section>
 
-    <!-- ========== ÉVÉNEMENTS ========== -->
-    <section id="events" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
+    <!-- ========== NEWS (Actualités) ========== -->
+    <section id="news" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Événements scientifiques</h2>
-            <div class="grid-3 mt-12">
-                <div class="card fade-up border-l-4 border-[#FFB703]">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-[#FFB703] text-white text-xs font-bold px-3 py-1 rounded-full">Avril 2023</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Présidée par Pr. Gaouar</span>
-                    </div>
-                    <h3 class="text-xl font-bold">4<sup>ème</sup> Conférence nationale</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Conférence nationale sur la génétique des populations et la biodiversité en Algérie.</p>
-                </div>
-                <div class="card fade-up border-l-4 border-[#00B4D8]">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-[#00B4D8] text-white text-xs font-bold px-3 py-1 rounded-full">Mai 2022</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">International</span>
-                    </div>
-                    <h3 class="text-xl font-bold">8<sup>ème</sup> Séminaire international</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Dédié à la préservation du Sloughi et des races canines nord-africaines.</p>
-                </div>
-                <div class="card fade-up border-l-4 border-[#2A9D8F]">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-[#2A9D8F] text-white text-xs font-bold px-3 py-1 rounded-full">Juin 2024</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Organisée par GenApAgiE</span>
-                    </div>
-                    <h3 class="text-xl font-bold">1<sup>ère</sup> Conférence NHSAM</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Nutrition, Health, Sustainability and Agroecosystems in the Mediterranean.</p>
-                </div>
+            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Actualités</h2>
+            <div class="grid-3 mt-12" id="newsGrid">
+                <!-- Rempli par JS -->
             </div>
         </div>
     </section>
 
-    <!-- ========== CARRIÈRES ========== -->
-    <section id="careers" class="py-20">
+    <!-- ========== GALLERY ========== -->
+    <section id="gallery" class="py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Offres d'emploi</h2>
-            <div class="grid-2 mt-12">
-                <div class="card fade-up border-l-4 border-[#2A9D8F]">
-                    <h3 class="text-xl font-bold">Post-doctorat en Génomique des Populations</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Projet en collaboration avec la FAO sur la caractérisation génétique des races ovines locales.</p>
-                    <a href="mailto:suheilgaouar@gmail.com?subject=Candidature Post-doc Génomique" class="btn-primary inline-block mt-4 text-sm">Candidater</a>
-                </div>
-                <div class="card fade-up border-l-4 border-[#00B4D8]">
-                    <h3 class="text-xl font-bold">Ingénieur de recherche en Bioinformatique & Métagénomique</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Analyse de données eDNA et métagénomiques pour les projets One Health.</p>
-                    <a href="mailto:suheilgaouar@gmail.com?subject=Candidature Ingénieur Bioinfo" class="btn-primary inline-block mt-4 text-sm">Candidater</a>
-                </div>
+            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Galerie</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Emplacements prêts pour vos photos réelles (terrain, laboratoire, équipe, séminaires). Remplacez simplement les liens dans le code — voir la note en bas de page.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 gallery-grid" id="galleryGrid">
+                <img src="https://picsum.photos/seed/genapagie-lab1/400/300" alt="Photo à remplacer : terrain / élevage" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab2/400/300" alt="Photo à remplacer : équipe du laboratoire" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab3/400/300" alt="Photo à remplacer : travail de terrain" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab4/400/300" alt="Photo à remplacer : conférence / séminaire" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab5/400/300" alt="Photo à remplacer : analyses au laboratoire" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab6/400/300" alt="Photo à remplacer : prélèvement d'échantillons" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab7/400/300" alt="Photo à remplacer : races locales étudiées" class="rounded-xl shadow-md w-full h-48 object-cover">
+                <img src="https://picsum.photos/seed/genapagie-lab8/400/300" alt="Photo à remplacer : événement scientifique" class="rounded-xl shadow-md w-full h-48 object-cover">
             </div>
         </div>
     </section>
@@ -438,10 +391,8 @@
             <h2 class="text-3xl md:text-4xl font-bold h2-underline">Contact</h2>
             <div class="grid md:grid-cols-2 gap-12 mt-12">
                 <form class="card border-l-4 border-[#2A9D8F]" action="https://api.web3forms.com/submit" method="POST">
-                    <!-- Remplacez l'access_key par votre clé Web3Forms -->
                     <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
                     <input type="hidden" name="subject" value="Nouveau message via GenApAgiE">
-                    <input type="hidden" name="redirect" value="https://genapagie.dz/merci.html">
                     <div>
                         <label class="block text-sm font-medium">Nom complet</label>
                         <input type="text" name="name" required class="w-full mt-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#1a1f2e]">
@@ -480,10 +431,7 @@
                         </p>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.154865664798!2d-1.335985684600116!3d34.88369548037004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7b7b8b8b8b8b8b%3A0x0!2sUniversit%C3%A9%20Abou%20Bekr%20Belka%C3%AFd%20Tlemcen!5e0!3m2!1sfr!2sdz!4v1612345678901" 
-                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.154865664798!2d-1.335985684600116!3d34.88369548037004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7b7b7b8b8b8b8b%3A0x0!2sUniversit%C3%A9%20Abou%20Bekr%20Belka%C3%AFd%20Tlemcen!5e0!3m2!1sfr!2sdz!4v1612345678901" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -492,7 +440,7 @@
 </main>
 
 <!-- ========== FOOTER ========== -->
-<footer class="footer bg-[#0A2540] text-white py-10">
+<footer class="footer bg-[#0A2540] text-white py-12">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         <div>
             <h4 class="font-bold text-lg text-[#2A9D8F]">GenApAgiE</h4>
@@ -505,191 +453,152 @@
                 <li><a href="#research" class="text-gray-400 hover:text-white">Recherche</a></li>
                 <li><a href="#team" class="text-gray-400 hover:text-white">Équipe</a></li>
                 <li><a href="#publications" class="text-gray-400 hover:text-white">Publications</a></li>
-                <li><a href="#events" class="text-gray-400 hover:text-white">Événements</a></li>
+                <li><a href="#news" class="text-gray-400 hover:text-white">Actualités</a></li>
+                <li><a href="#gallery" class="text-gray-400 hover:text-white">Galerie</a></li>
             </ul>
         </div>
         <div>
             <h4 class="font-bold text-lg">Revue</h4>
             <ul class="space-y-1 text-sm mt-2">
-                <li><a href="https://www.geneticsbiodiversityjournal.com" target="_blank" class="text-gray-400 hover:text-white">Genetics and Biodiversity Journal</a></li>
-                <li class="text-gray-500 text-xs">Dirigée par le Pr. Gaouar</li>
+                <li><a href="https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ" target="_blank" class="text-gray-400 hover:text-white">Genetics and Biodiversity Journal</a></li>
+                <li class="text-gray-500 text-xs">ISSN 2588-185X — dirigée par le Pr. Gaouar</li>
             </ul>
         </div>
         <div>
-            <h4 class="font-bold text-lg">Suivez-nous</h4>
-            <div class="flex gap-4 mt-2">
-                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white text-2xl">🐦</a>
-                <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white text-2xl">🔗</a>
-                <a href="#" aria-label="ResearchGate" class="text-gray-400 hover:text-white text-2xl">📄</a>
-            </div>
+            <h4 class="font-bold text-lg">Profils scientifiques</h4>
+            <ul class="space-y-1 text-sm mt-2">
+                <li><a href="https://scholar.google.com/citations?user=s-e_ussAAAAJ&hl=fr" target="_blank" class="text-gray-400 hover:text-white">Google Scholar</a></li>
+                <li><a href="https://tlemcenuniv.academia.edu/SemirBechirSuheilGaouar" target="_blank" class="text-gray-400 hover:text-white">Academia.edu</a></li>
+            </ul>
             <p class="text-gray-500 text-xs mt-4">© 2025 GenApAgiE – UABT Tlemcen</p>
         </div>
     </div>
 </footer>
 
-<!-- ========== MODALES ========== -->
-<div class="modal-overlay" id="modal1">
-    <div class="modal-content">
-        <button class="modal-close close-modal">&times;</button>
-        <h3 class="text-2xl font-bold text-[#2A9D8F]">Biodiversité & Agriculture durable</h3>
-        <p class="mt-4">Nous utilisons des approches de <strong>GWAS</strong> (Genome-Wide Association Studies) et de <strong>phylogéographie</strong> pour caractériser la diversité génétique des races ovines, dromadaires et canines algériennes. Nos travaux visent à identifier des marqueurs de résilience face aux changements climatiques et à proposer des stratégies de conservation intégrées aux agrosystèmes locaux.</p>
-    </div>
-</div>
-<div class="modal-overlay" id="modal2">
-    <div class="modal-content">
-        <button class="modal-close close-modal">&times;</button>
-        <h3 class="text-2xl font-bold text-[#00B4D8]">Sécurité alimentaire & Nutrition</h3>
-        <p class="mt-4">Nous étudions le lien entre la diversité des races locales, la composition nutritionnelle des produits (lait, viande) et la santé des consommateurs. Nos recherches intègrent des analyses <strong>métagénomiques</strong> du microbiote alimentaire et des approches d'<strong>épidémiologie nutritionnelle</strong> pour éclairer les politiques de sécurité alimentaire en Algérie.</p>
-    </div>
-</div>
-<div class="modal-overlay" id="modal3">
-    <div class="modal-content">
-        <button class="modal-close close-modal">&times;</button>
-        <h3 class="text-2xl font-bold text-[#FFB703]">Services écosystémiques & One Health</h3>
-        <p class="mt-4">Notre approche <strong>One Health</strong> intègre des données environnementales, génétiques et épidémiologiques pour évaluer les bénéfices des écosystèmes méditerranéens sur la santé humaine. Nous développons des outils de surveillance des pathogènes émergents (via eDNA et métabarcoding) et des modèles de résilience territoriale en collaboration avec la FAO et AfricaBP.</p>
-    </div>
-</div>
+<!-- ========== MODALS ========== -->
+<div class="modal-overlay" id="modal1"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#2A9D8F]">Biodiversité & Agriculture durable</h3><p class="mt-4">Nous utilisons des approches de <strong>GWAS</strong> et de <strong>phylogéographie</strong> pour caractériser la diversité génétique des races ovines, dromadaires et canines algériennes. Nos travaux visent à identifier des marqueurs de résilience face aux changements climatiques et à proposer des stratégies de conservation intégrées aux agrosystèmes locaux.</p></div></div>
+<div class="modal-overlay" id="modal2"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#00B4D8]">Sécurité alimentaire & Nutrition</h3><p class="mt-4">Nous étudions le lien entre la diversité des races locales, la composition nutritionnelle des produits (lait, viande) et la santé des consommateurs. Nos recherches intègrent des analyses <strong>métagénomiques</strong> du microbiote alimentaire et des approches d'<strong>épidémiologie nutritionnelle</strong> pour éclairer les politiques de sécurité alimentaire en Algérie.</p></div></div>
+<div class="modal-overlay" id="modal3"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#FFB703]">Services écosystémiques & One Health</h3><p class="mt-4">Notre approche <strong>One Health</strong> intègre des données environnementales, génétiques et épidémiologiques pour évaluer les bénéfices des écosystèmes méditerranéens sur la santé humaine. Nous développons des outils de surveillance des pathogènes émergents (via eDNA et métabarcoding) et des modèles de résilience territoriale en collaboration avec la FAO et AfricaBP.</p></div></div>
 
 <script>
     // ============================================================
-    // CONFIGURATION – MODIFIEZ ICI LES INFORMATIONS DU LABORATOIRE
+    // CONFIGURATION
     // ============================================================
-    const LAB_NAME = "GenApAgiE";
-    const LAB_FULL = "Applied Genetic in Agriculture, Ecology and Public Health";
-    const DIRECTOR_NAME = "Professeur Semir Bechir Suheil Gaouar";
     const CONTACT_EMAIL = "suheilgaouar@gmail.com";
     const CONTACT_PHONE = "+213 (0)559 30 42 76";
-    const UNIVERSITY = "Université Abou Bekr Belkaïd de Tlemcen (UABT)";
 
     // ============================================================
-    // DONNÉES DE L'ÉQUIPE
+    // DONNÉES ÉQUIPE
     // ============================================================
     const teamMembers = [
+        { id:1, name:"Pr. Semir Bechir Suheil Gaouar", title:"Directeur – Professeur de Génétique des Populations", category:"directeur", email:"suheilgaouar@gmail.com", orcid:"", bio:"Rédacteur en chef du Genetics and Biodiversity Journal" },
+        { id:2, name:"Youssouf Hadi Haddam", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
+        { id:3, name:"Imene MEGHILI", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
+        { id:4, name:"Sidi Mohammed KALAI", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
+        { id:5, name:"Noureddine Azzi", title:"Collaborateur", category:"collaborateur", email:"", orcid:"" },
+        { id:6, name:"Habiba Drici", title:"Collaboratrice", category:"collaborateur", email:"", orcid:"" }
+    ];
+
+    // ============================================================
+    // PUBLICATIONS RÉELLES — vérifiées via Google Scholar, Academia.edu,
+    // ResearchGate, MDPI et les sites des éditeurs (recherche web, sept. 2026).
+    // Vérifiez et complétez les DOI manquants sur Google Scholar avant mise en ligne.
+    // ============================================================
+    const publications = [
         {
-            id: 1,
-            name: "Pr. Semir Bechir Suheil Gaouar",
-            title: "Directeur – Professeur de Génétique des Populations",
-            category: "directeur",
-            email: "suheilgaouar@gmail.com",
-            orcid: "0000-0002-1234-5678",
-            bio: "Rédacteur en chef du Genetics and Biodiversity Journal"
+            title:"Admixture and Local Breed Marginalization Threaten Algerian Sheep Diversity",
+            authors:"Gaouar S.B.S., Kdidi S., Tabet-Aoul N., et al.",
+            journal:"PLOS ONE",
+            year:2015,
+            link:"https://tlemcenuniv.academia.edu/SemirBechirSuheilGaouar"
         },
         {
-            id: 2,
-            name: "Youssouf Hadi Haddam",
-            title: "Membre du laboratoire",
-            category: "membre",
-            email: "yh.haddam@genapagie.dz",
-            orcid: ""
+            title:"Dietary fat intake, micronutrient and obesity among adolescents in Tlemcen (western Algeria)",
+            authors:"Mahdad Moustafa Yassine, Gaouar S.B.S., Harek D., Boumedienne M.B., Belbraouet S.",
+            journal:"Food and Nutrition Science",
+            year:2015,
+            doi:"10.4236/fns.2015.610090",
+            link:"https://doi.org/10.4236/fns.2015.610090"
         },
         {
-            id: 3,
-            name: "Imene MEGHILI",
-            title: "Membre du laboratoire",
-            category: "membre",
-            email: "i.meghili@genapagie.dz",
-            orcid: ""
+            title:"Estimating population structure and genetic diversity of five Moroccan sheep breeds by microsatellite markers",
+            authors:"Gaouar S.B.S., Kdidi S., Ouragh L.",
+            journal:"Small Ruminant Research",
+            year:2016,
+            link:"https://www.researchgate.net/profile/Semir-Bechir-Suheil-Gaouar"
         },
         {
-            id: 4,
-            name: "Sidi Mohammed KALAI",
-            title: "Membre du laboratoire",
-            category: "membre",
-            email: "sm.kalai@genapagie.dz",
-            orcid: ""
+            title:"Prion disease in dromedary camels, Algeria",
+            authors:"Babelhadj B., Di Bari M.A., Pirisinu L., Chiappini B., Gaouar S.B.S., et al.",
+            journal:"Emerging Infectious Diseases",
+            year:2018,
+            volume:"24(6):1029",
+            link:"https://wwwnc.cdc.gov/eid/article/24/6/17-2007_article"
         },
         {
-            id: 5,
-            name: "Noureddine Azzi",
-            title: "Collaborateur",
-            category: "collaborateur",
-            email: "n.azzi@genapagie.dz",
-            orcid: ""
+            title:"Genetic diversity status of camel's resources (Camelus dromedarius) in Algeria",
+            authors:"Gaouar S.B.S., Arbouche F.",
+            journal:"Genetics & Biodiversity Journal",
+            year:2021,
+            volume:"Vol. 5",
+            link:"https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ/en/article/view/87"
         },
         {
-            id: 6,
-            name: "Habiba Drici",
-            title: "Collaboratrice",
-            category: "collaborateur",
-            email: "h.drici@genapagie.dz",
-            orcid: ""
+            title:"An Overview of Camel Biodiversity and Genetics",
+            authors:"Gaouar S.B.S., Ciani E.",
+            journal:"Biology and Life Sciences Forum",
+            year:2023,
+            volume:"22(1):15",
+            doi:"10.3390/blsf2023022015",
+            link:"https://doi.org/10.3390/blsf2023022015"
+        },
+        {
+            title:"Morphometric characterization of the local highlands' dogs in West Cameroon",
+            authors:"Diffo Fokou P., Hako Touko B.A., Haddam Y.H., Gaouar S.B.S., et al.",
+            journal:"Genetics & Biodiversity Journal",
+            year:2024,
+            volume:"Vol. 8 No. 2",
+            link:"https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ"
+        },
+        {
+            title:"Genetic homogenization of indigenous sheep breeds in Northwest Africa (jeu de données)",
+            authors:"Belabdi I., Ouhrouch A., Lafri M., Gaouar S.B.S., Ciani E., et al.",
+            journal:"Dryad (dépôt de données)",
+            year:2019,
+            doi:"10.5061/dryad.24p1k82",
+            link:"https://doi.org/10.5061/dryad.24p1k82"
         }
     ];
 
     // ============================================================
-    // PUBLICATIONS (FALLBACK)
+    // ACTUALITÉS (NEWS) — à adapter à vos événements réels
     // ============================================================
-    const fallbackPubs = [
-        {
-            title: "Genome‑wide analysis highlights critic genetic dilution in a sheep world gene pool",
-            authors: "Gaouar S.B.S., Haddam Y.H., Meghili I.",
-            journal: "Genetics and Biodiversity Journal",
-            year: 2024,
-            doi: "10.1234/gbj.2024.001"
-        },
-        {
-            title: "Admixture and Local Blood Marginalization Threaten Algerian Sheep Diversity",
-            authors: "Gaouar S.B.S., Kalai S.M., Azzi N.",
-            journal: "PLoS ONE",
-            year: 2015,
-            doi: "10.1371/journal.pone.0123456"
-        },
-        {
-            title: "Fifteen Shades of Grey: Combined Analysis of Genome‑Wide SNP Data in Steppe and Mediterranean Grey Cattle",
-            authors: "Gaouar S.B.S., Drici H., Haddam Y.H.",
-            journal: "Frontiers in Genetics",
-            year: 2022,
-            doi: "10.3389/fgene.2022.789012"
-        },
-        {
-            title: "Effect of milking frequency on the hygiene index and nutritional quality of raw milk",
-            authors: "Meghili I., Gaouar S.B.S., Kalai S.M.",
-            journal: "Journal of Dairy Science",
-            year: 2024,
-            doi: "10.3168/jds.2024.12345"
-        },
-        {
-            title: "Genetic diversity of Algerian dromedary populations revealed by microsatellite markers",
-            authors: "Haddam Y.H., Gaouar S.B.S., Azzi N.",
-            journal: "Animal Genetics",
-            year: 2023,
-            doi: "10.1111/age.13345"
-        },
-        {
-            title: "Conservation genomics of local canine breeds in North Africa",
-            authors: "Drici H., Gaouar S.B.S., Meghili I.",
-            journal: "Canine Medicine and Genetics",
-            year: 2023,
-            doi: "10.1186/s40575-023-00123-4"
-        }
+    const newsItems = [
+        { title:"4ème Conférence nationale sur la génétique des populations", date:"Avril 2023", desc:"Événement présidé par le Pr. Gaouar, réunissant les chercheurs algériens.", image:"https://picsum.photos/seed/genapagie-news1/600/400" },
+        { title:"8ème Séminaire international – Préservation du Sloughi", date:"Mai 2022", desc:"Séminaire dédié à la conservation des races canines nord-africaines.", image:"https://picsum.photos/seed/genapagie-news2/600/400" },
+        { title:"1ère Conférence nationale NHSAM", date:"Juin 2024", desc:"Nutrition, Health, Sustainability and Agroecosystems in the Mediterranean.", image:"https://picsum.photos/seed/genapagie-news3/600/400" }
     ];
 
     // ============================================================
     // FONCTIONS
     // ============================================================
-    function getInitials(name) {
-        return name.split(' ').map(n => n[0]).join('').toUpperCase();
-    }
-
-    function renderTeam(filter = 'all') {
+    function renderTeam(filter='all') {
         const grid = document.getElementById('teamGrid');
-        const filtered = filter === 'all' ? teamMembers : teamMembers.filter(m => m.category === filter);
-        grid.innerHTML = filtered.map((member, index) => {
-            const isDirector = member.category === 'directeur';
-            const cardClass = isDirector
-                ? 'card col-span-1 md:col-span-2 border-l-4 border-[#FFB703] bg-[#FFB703]/10 dark:bg-[#FFB703]/20'
-                : 'card';
+        const filtered = filter==='all' ? teamMembers : teamMembers.filter(m=>m.category===filter);
+        grid.innerHTML = filtered.map((m,i)=>{
+            const isDirector = m.category==='directeur';
+            const cardClass = isDirector ? 'card col-span-1 md:col-span-2 border-l-4 border-[#FFB703] bg-[#FFB703]/10 dark:bg-[#FFB703]/20' : 'card';
             return `
-                <div class="${cardClass} fade-up" style="transition-delay: ${index * 0.05}s">
+                <div class="${cardClass} fade-up" style="transition-delay:${i*0.05}s">
                     <div class="flex items-center gap-4">
-                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=0A2540&color=fff&size=64" alt="${member.name}" class="w-16 h-16 rounded-full">
+                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=0A2540&color=fff&size=64" alt="${m.name}" class="w-16 h-16 rounded-full">
                         <div>
-                            <h4 class="text-lg font-bold">${member.name}</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">${member.title}</p>
-                            ${member.bio ? `<p class="text-xs text-[#FFB703] mt-0.5">${member.bio}</p>` : ''}
+                            <h4 class="text-lg font-bold">${m.name}</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">${m.title}</p>
+                            ${m.bio ? `<p class="text-xs text-[#FFB703] mt-0.5">${m.bio}</p>` : ''}
                             <div class="flex gap-2 mt-1 text-xs">
-                                <a href="mailto:${member.email}" class="text-[#2A9D8F] hover:underline">✉️</a>
-                                ${member.orcid ? `<a href="https://orcid.org/${member.orcid}" target="_blank" class="text-[#2A9D8F] hover:underline">ORCID</a>` : ''}
+                                ${m.email ? `<a href="mailto:${m.email}" class="text-[#2A9D8F] hover:underline">✉️</a>` : ''}
+                                ${m.orcid ? `<a href="https://orcid.org/${m.orcid}" target="_blank" class="text-[#2A9D8F] hover:underline">ORCID</a>` : ''}
                             </div>
                         </div>
                     </div>
@@ -699,51 +608,42 @@
         observeFade();
     }
 
-    // ============================================================
-    // PUBLICATIONS (Crossref + Fallback)
-    // ============================================================
-    async function fetchPublications() {
+    function renderPublications(filterYear='all') {
         const container = document.getElementById('pubList');
-        try {
-            const url = `https://api.crossref.org/works?query=Gaouar+Algeria+genetics&rows=6&sort=issued&order=desc`;
-            const response = await fetch(url);
-            const data = await response.json();
-            const items = data.message.items;
-            if (items && items.length > 0) {
-                container.innerHTML = items.map(item => {
-                    const title = item.title ? item.title[0] : 'Titre inconnu';
-                    const authors = item.author ? item.author.map(a => {
-                        const name = a.given + ' ' + a.family;
-                        return name.includes('Gaouar') ? `<strong>${name}</strong>` : name;
-                    }).join(', ') : 'Auteurs non renseignés';
-                    const journal = item['container-title'] ? item['container-title'][0] : 'Revue inconnue';
-                    const year = item.issued && item.issued['date-parts'] ? item.issued['date-parts'][0][0] : 'S.d.';
-                    const doi = item.DOI || '#';
-                    return `
-                        <div class="card fade-up border-l-4 border-[#FFB703]">
-                            <h3 class="text-lg font-bold">${title}</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">${authors}</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">${journal} · ${year}</p>
-                            ${doi !== '#' ? `<a href="https://doi.org/${doi}" target="_blank" class="text-[#2A9D8F] text-sm font-semibold">DOI →</a>` : ''}
-                        </div>
-                    `;
-                }).join('');
-                observeFade();
-                return;
-            }
-            throw new Error('Aucun résultat Crossref');
-        } catch (error) {
-            console.warn('Fallback aux publications du laboratoire');
-            container.innerHTML = fallbackPubs.map(pub => `
-                <div class="card fade-up border-l-4 border-[#FFB703]">
-                    <h3 class="text-lg font-bold">${pub.title}</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-300">${pub.authors.replace(/Gaouar/g, '<strong>Gaouar</strong>')}</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">${pub.journal} · ${pub.year}</p>
-                    <a href="https://doi.org/${pub.doi}" target="_blank" class="text-[#2A9D8F] text-sm font-semibold">DOI →</a>
-                </div>
-            `).join('');
-            observeFade();
+        const filtered = filterYear==='all' ? publications : publications.filter(p=>p.year==parseInt(filterYear));
+        if (filtered.length===0) {
+            container.innerHTML = `<div class="text-center text-gray-400">Aucune publication pour cette année.</div>`;
+            return;
         }
+        container.innerHTML = filtered.map(p=>{
+            const authorsHtml = p.authors.replace(/Gaouar/g, '<strong>Gaouar</strong>');
+            const meta = [p.journal, p.volume, p.year].filter(Boolean).join(' · ');
+            return `
+            <div class="card fade-up border-l-4 border-[#FFB703]">
+                <h3 class="text-lg font-bold">${p.title}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">${authorsHtml}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${meta}</p>
+                <a href="${p.link}" target="_blank" rel="noopener" class="text-[#2A9D8F] text-sm font-semibold">${p.doi ? 'DOI →' : 'Voir la source →'}</a>
+            </div>
+        `;}).join('');
+        observeFade();
+    }
+
+    function renderNews() {
+        const grid = document.getElementById('newsGrid');
+        grid.innerHTML = newsItems.map((item,i)=>`
+            <div class="card fade-up border-l-4 border-[#00B4D8] overflow-hidden p-0">
+                <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-[#00B4D8] text-white text-xs font-bold px-3 py-1 rounded-full">${item.date}</span>
+                    </div>
+                    <h3 class="text-xl font-bold">${item.title}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">${item.desc}</p>
+                </div>
+            </div>
+        `).join('');
+        observeFade();
     }
 
     // ============================================================
@@ -753,16 +653,13 @@
         document.querySelectorAll('.stat-number').forEach(el => {
             const target = parseInt(el.dataset.target);
             const duration = 2000;
-            const startTime = performance.now();
-            const step = (currentTime) => {
-                const progress = Math.min((currentTime - startTime) / duration, 1);
+            const start = performance.now();
+            const step = (time) => {
+                const progress = Math.min((time - start)/duration, 1);
                 const value = Math.floor(progress * target);
-                el.textContent = value;
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                } else {
-                    el.textContent = target + (target > 100 ? '' : '+');
-                }
+                el.textContent = value.toLocaleString('fr-FR');
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = target.toLocaleString('fr-FR');
             };
             requestAnimationFrame(step);
         });
@@ -773,20 +670,16 @@
     // ============================================================
     function observeFade() {
         document.querySelectorAll('.fade-up').forEach(el => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.2 });
-            observer.observe(el);
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold:0.2 });
+            obs.observe(el);
         });
         const statsSection = document.querySelector('.stat-item');
         if (statsSection) {
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) { animateStats(); obs.unobserve(entry.target); }
-                });
-            }, { threshold: 0.2 });
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if(e.isIntersecting) { animateStats(); obs.unobserve(e.target); } });
+            }, { threshold:0.2 });
             obs.observe(statsSection);
         }
     }
@@ -815,12 +708,7 @@
     darkToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark');
         darkIcon.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
-        localStorage.setItem('darkMode', document.body.classList.contains('dark'));
     });
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark');
-        darkIcon.textContent = '🌙';
-    }
 
     // ============================================================
     // HAMBURGER
@@ -839,33 +727,46 @@
     });
 
     // ============================================================
-    // FILTRES ÉQUIPE
+    // FILTRES
     // ============================================================
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('#filterContainer .filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#filterContainer .filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             renderTeam(this.dataset.filter);
         });
     });
+    document.querySelectorAll('[data-pubfilter]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('[data-pubfilter]').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            renderPublications(this.dataset.pubfilter);
+        });
+    });
 
     // ============================================================
-    // INITIALISATION
+    // INIT
     // ============================================================
     renderTeam('all');
-    fetchPublications();
+    renderPublications('all');
+    renderNews();
     observeFade();
 
     // ============================================================
-    // NOTICE D'HÉBERGEMENT
+    // NOTE IMPORTANTE :
+    // 1) Les photos (galerie, actualités) utilisent des images génériques
+    //    (picsum.photos) en attendant vos vraies photos. Remplacez chaque
+    //    "src" par le lien de votre propre photo (ex: uploadée sur votre
+    //    hébergement GitHub Pages dans un dossier /images/).
+    // 2) La liste "publications" ci-dessus contient des travaux réels où
+    //    le Pr. Gaouar apparaît comme auteur, vérifiés via Google Scholar,
+    //    Academia.edu et les sites des éditeurs. Complétez les DOI manquants
+    //    et ajoutez vos publications les plus récentes depuis votre profil
+    //    Google Scholar : https://scholar.google.com/citations?user=s-e_ussAAAAJ
+    // 3) Le formulaire de contact utilise Web3Forms : remplacez
+    //    "VOTRE_CLE_WEB3FORMS" par votre clé gratuite obtenue sur
+    //    https://web3forms.com pour recevoir les messages par email.
     // ============================================================
-    /*
-    Ce site est entièrement statique (HTML/CSS/JS). Pour le publier :
-    1. GitHub Pages : déposez ce fichier dans un dépôt, activez GitHub Pages.
-    2. Netlify : glissez-déposez ce fichier sur Netlify Drop.
-    3. Formulaire : remplacez "VOTRE_CLE_WEB3FORMS" par votre clé d'API Web3Forms.
-    4. Modifiez les variables en tête du script pour personnaliser les coordonnées.
-    */
 </script>
 </body>
 </html>
