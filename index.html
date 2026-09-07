@@ -1,772 +1,528 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>GenApAgiE – Laboratoire de Génétique Appliquée</title>
-    <meta name="description" content="Laboratoire Applied Genetic in Agriculture, Ecology and Public Health – Université de Tlemcen. Recherche en génétique des populations, biodiversité, One Health."/>
-    <!-- Open Graph -->
-    <meta property="og:title" content="GenApAgiE – Génétique, Biodiversité, Santé Publique" />
-    <meta property="og:description" content="Laboratoire de recherche de l'Université de Tlemcen (Algérie) dédié à la génétique appliquée." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rahim112008.github.io/Genapagie/" />
-    <meta name="robots" content="index, follow" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire GenApAgiE – Génétique Appliquée</title>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Variables & Reset */
-        :root {
-            --primary: #0A2540;
-            --secondary: #2A9D8F;
-            --teal: #00B4D8;
-            --accent: #FFB703;
-            --bg-light: #F8F9FA;
-            --bg-card: #E9ECEF;
-            --text-dark: #212529;
-            --text-muted: #495057;
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            transition: background 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f9f4;
+            color: #1e3a2f;
+            line-height: 1.6;
         }
-        body.dark {
-            --bg-light: #0b0f1a;
-            --bg-card: #1a1f2e;
-            --text-dark: #e9ecef;
-            --text-muted: #adb5bd;
+        a {
+            color: #1b6b4a;
+            text-decoration: none;
         }
-        body.dark .card { background: var(--bg-card); }
-        body.dark .navbar { background: rgba(10,37,64,0.95) !important; }
-        body.dark .footer { background: #0a0e17; }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        .h2-underline::after {
-            content: '';
+        /* ---------- HEADER ---------- */
+        header {
+            background: linear-gradient(135deg, #0b3b2a, #1c6e4f);
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo-area img {
+            height: 80px;
+            width: auto;
+            background: #fff;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .logo-area h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-area h1 small {
             display: block;
-            width: 70px;
-            height: 4px;
-            background: var(--secondary);
-            margin-top: 0.6rem;
-            border-radius: 2px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.9;
         }
-        .card {
-            background: white;
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid var(--secondary);
+        .header-contact {
+            text-align: right;
+            font-size: 0.95rem;
         }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        .header-contact i {
+            margin-right: 8px;
         }
-        body.dark .card { box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-left-color: var(--teal); }
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-            padding: 0.8rem 2.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 14px rgba(42,157,143,0.3);
+        .header-contact a {
+            color: #fff;
         }
-        .btn-primary:hover { background: #1e7a6e; transform: scale(1.03); }
-        .btn-outline {
-            border: 2px solid white;
-            color: white;
-            padding: 0.7rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .btn-outline:hover { background: white; color: var(--primary); }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary), #1B4332, var(--teal));
-            background-size: 300% 300%;
-            animation: gradientShift 16s ease infinite;
+        /* ---------- NAVIGATION ---------- */
+        nav {
+            background: #1a5a40;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+            gap: 10px 25px;
         }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.9s ease, transform 0.9s ease;
-        }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--secondary);
-        }
-        /* Hamburger */
-        .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-        .hamburger span {
-            display: block; width: 28px; height: 3px;
-            background: white; border-radius: 2px; transition: 0.3s;
-        }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-        .nav-menu { display: flex; gap: 2rem; align-items: center; }
-        @media (max-width: 1023px) {
-            .nav-menu {
-                display: none; flex-direction: column; background: var(--primary);
-                padding: 1.5rem; border-radius: 1rem; position: absolute;
-                top: 70px; right: 1rem; width: 220px; gap: 1rem;
-                box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-            }
-            .nav-menu.open { display: flex; }
-            .nav-menu a { color: white !important; }
-        }
-        .modal-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-            justify-content: center; align-items: center; z-index: 1000;
-        }
-        .modal-overlay.active { display: flex; }
-        .modal-content {
-            background: white; max-width: 600px; width: 90%; padding: 2rem;
-            border-radius: 1.5rem; max-height: 80vh; overflow-y: auto;
-            position: relative; border-top: 6px solid var(--secondary);
-        }
-        body.dark .modal-content { background: #1a1f2e; color: #e9ecef; }
-        .modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.8rem; cursor: pointer; background: none; border: none; color: var(--text-muted); }
-        .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
-        @media (max-width: 768px) {
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-        }
-        @media (min-width: 769px) and (max-width: 1023px) {
-            .grid-3 { grid-template-columns: repeat(2,1fr); }
-            .grid-4 { grid-template-columns: repeat(2,1fr); }
-        }
-        .filter-btn {
-            padding: 0.4rem 1.2rem; border-radius: 50px;
-            border: 1px solid var(--secondary); background: transparent;
-            color: var(--secondary); font-weight: 500; cursor: pointer;
+        nav ul li a {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
             transition: 0.2s;
         }
-        .filter-btn.active, .filter-btn:hover { background: var(--secondary); color: white; }
-        .icon-green { color: var(--secondary); }
-        .icon-teal { color: var(--teal); }
-        .icon-accent { color: var(--accent); }
-        .badge-real {
-            display:inline-block; font-size: 0.65rem; font-weight: 700;
-            letter-spacing: 0.03em; color: var(--secondary);
-            border: 1px solid var(--secondary); border-radius: 50px;
-            padding: 0.1rem 0.6rem; margin-left: 0.5rem;
+        nav ul li a:hover {
+            border-bottom-color: #b8e6c9;
+            text-decoration: none;
         }
 
-        /* Gallery grid */
-        .gallery-grid img {
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+        /* ---------- SECTIONS ---------- */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #d0e8d0;
         }
-        .gallery-grid img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        section:last-of-type {
+            border-bottom: none;
         }
-        .photo-note {
-            font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;
+        .section-title {
+            font-size: 2rem;
+            color: #0b3b2a;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
         }
-        /* Parallax effect (simple) */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: #1c6e4f;
+            border-radius: 2px;
+        }
+        .section-title i {
+            margin-right: 12px;
+            color: #1c6e4f;
+        }
+
+        /* ---------- CARTES (Équipes, etc.) ---------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-left: 5px solid #1c6e4f;
+            transition: 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #0b3b2a;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .card h3 i {
+            margin-right: 10px;
+            color: #1c6e4f;
+        }
+        .card .chef {
+            font-weight: 600;
+            color: #1a5a40;
+            margin: 10px 0 5px;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding: 4px 0;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed #ecf5ec;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+        .card .badge {
+            display: inline-block;
+            background: #e6f2e6;
+            color: #1a5a40;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+
+        /* ---------- LISTES ---------- */
+        .two-col-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            margin: 15px 0;
+        }
+        @media (max-width: 700px) {
+            .two-col-list { grid-template-columns: 1fr; }
+        }
+        .two-col-list li {
+            list-style: none;
+            padding: 6px 0;
+            border-bottom: 1px solid #e8f0e8;
+        }
+        .two-col-list li i {
+            color: #1c6e4f;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        /* ---------- PUBLICATIONS ---------- */
+        .pub-item {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #1c6e4f;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .pub-item a {
+            font-weight: 500;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #0b3b2a;
+            color: #d4e8dc;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        footer a {
+            color: #b8e6c9;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-contact {
+                text-align: center;
+                margin-top: 10px;
+            }
+            .logo-area {
+                flex-direction: column;
+            }
+            .logo-area img {
+                height: 60px;
+            }
+            .logo-area h1 {
+                font-size: 1.4rem;
+            }
+            nav ul {
+                gap: 8px 15px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- ========== HEADER ========== -->
-<header class="navbar fixed top-0 w-full z-50" style="background: rgba(10,37,64,0.92); backdrop-filter: blur(8px);">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-        <a href="#" class="flex items-center gap-2 text-white font-bold text-xl">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M6 34 L34 6 M34 34 L6 6" stroke="#2A9D8F" stroke-width="2"/>
-                <circle cx="20" cy="20" r="12" stroke="#FFB703" stroke-width="1.5"/>
-                <path d="M20 8 L20 32 M8 20 L32 20" stroke="#00B4D8" stroke-width="1.2"/>
-                <path d="M14 14 L26 26 M26 14 L14 26" stroke="#2A9D8F" stroke-width="1.2" opacity="0.6"/>
-                <path d="M28 28 Q34 22 28 16 Q22 22 28 28Z" fill="#2A9D8F" opacity="0.4"/>
-            </svg>
-            <span class="hidden sm:inline">Gen<span style="color:#2A9D8F;">ApAgi</span>E</span>
-            <span class="text-xs text-white/50 hidden lg:inline ml-1">UABT Tlemcen</span>
-        </a>
-        <nav class="flex items-center gap-6">
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#hero" class="text-white/80 hover:text-white transition">Accueil</a></li>
-                <li><a href="#research" class="text-white/80 hover:text-white transition">Recherche</a></li>
-                <li><a href="#team" class="text-white/80 hover:text-white transition">Équipe</a></li>
-                <li><a href="#publications" class="text-white/80 hover:text-white transition">Publications</a></li>
-                <li><a href="#news" class="text-white/80 hover:text-white transition">Actualités</a></li>
-                <li><a href="#gallery" class="text-white/80 hover:text-white transition">Galerie</a></li>
-                <li><a href="#contact" class="text-white/80 hover:text-white transition">Contact</a></li>
-                <li>
-                    <button id="darkToggle" class="text-white/80 hover:text-white text-xl" aria-label="Dark mode">
-                        <span id="darkIcon">☀️</span>
-                    </button>
-                </li>
-            </ul>
-            <div class="hamburger lg:hidden" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
+<!-- ==================== HEADER ==================== -->
+<header>
+    <div class="container header-content">
+        <div class="logo-area">
+            <!-- REMPLACEZ LE CHEMIN PAR VOTRE LOGO (PNG, JPG, etc.) -->
+            <img src="logo-genapagie.png" alt="Logo GenApAgiE">
+            <div>
+                <h1>GenApAgiE <small>Génétique appliquée en Agronomie, écologie et santé publique</small></h1>
             </div>
-        </nav>
+        </div>
+        <div class="header-contact">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:suheilgaouar@gmail.com">suheilgaouar@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> +213 (0)559 30 42 76</p>
+            <p><i class="fas fa-map-marker-alt"></i> Université de Tlemcen, Nouveau Pôle</p>
+        </div>
     </div>
 </header>
 
-<main>
-    <!-- ========== HERO ========== -->
-    <section id="hero" class="hero-gradient min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-white space-y-6">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                    Applied Genetic in<br>Agriculture, Ecology<br>& Public Health
-                </h1>
-                <p class="text-xl font-semibold text-white/90">Laboratoire GenApAgiE – Université de Tlemcen – Algérie</p>
-                <p class="text-lg text-white/80 max-w-lg">
-                    Caractérisation génétique des races locales, sécurité alimentaire, services écosystémiques et santé humaine dans une approche <span class="font-bold text-[#FFB703]">One Health</span>.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#research" class="btn-primary">Explorer nos axes</a>
-                    <a href="#publications" class="btn-outline">Nos publications</a>
-                </div>
-            </div>
-            <div class="hidden md:flex justify-center">
-                <div class="w-72 h-72 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                    <svg width="180" height="180" viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="1.5">
-                        <circle cx="50" cy="50" r="40" stroke="white" stroke-dasharray="4 4"/>
-                        <path d="M30 50 L70 50 M50 30 L50 70" stroke="#2A9D8F" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="12" fill="#2A9D8F" opacity="0.5"/>
-                        <circle cx="25" cy="25" r="4" fill="#FFB703" />
-                        <circle cx="75" cy="25" r="4" fill="#FFB703" />
-                        <circle cx="25" cy="75" r="4" fill="#FFB703" />
-                        <circle cx="75" cy="75" r="4" fill="#FFB703" />
-                        <path d="M50 10 Q60 30 80 20" stroke="#00B4D8" stroke-width="1.5" opacity="0.6"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-sm animate-bounce">↓</div>
-    </section>
+<!-- ==================== NAVIGATION ==================== -->
+<nav>
+    <ul>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#equipes">Équipes</a></li>
+        <li><a href="#recherche">Axes de recherche</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#equipements">Équipements</a></li>
+        <li><a href="#projets">Projets & collab.</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- ========== STATS ========== -->
-    <section class="py-16 bg-white/50 dark:bg-transparent">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="2021">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Création</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="4">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Équipes de recherche</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="8">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Publications listées</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="1884">0</div>
-                    <div class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">Citations (Google Scholar)</div>
-                </div>
-            </div>
-            <p class="text-center text-xs text-gray-400 dark:text-gray-500 mt-4">
-                Citations du Pr. Gaouar d'après son profil Google Scholar public — à mettre à jour régulièrement.
-            </p>
+<!-- ==================== PRÉSENTATION ==================== -->
+<section id="presentation">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-flask"></i> Présentation du laboratoire</h2>
+        <p style="font-size:1.1rem; margin-bottom:20px;">
+            <strong>GenApAgiE</strong> (Génétique appliquée en Agronomie, écologie et santé publique) est un laboratoire de recherche de l'<strong>Université Abou Bekr Belkaïd de Tlemcen</strong>, créé en 2021. 
+            Il regroupe <strong>4 équipes</strong> pluridisciplinaires et <strong>24 chercheurs</strong> autour de la génétique animale, végétale, humaine et de la bio-informatique.
+        </p>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; background:#eaf5ea; border-radius:12px; padding:25px; margin-top:15px;">
+            <div><i class="fas fa-users" style="color:#1c6e4f; font-size:1.8rem;"></i> <br><strong>4 équipes</strong></div>
+            <div><i class="fas fa-user-graduate" style="color:#1c6e4f; font-size:1.8rem;"></i> <br><strong>24 chercheurs</strong></div>
+            <div><i class="fas fa-microscope" style="color:#1c6e4f; font-size:1.8rem;"></i> <br><strong>150 m²</strong> de laboratoire</div>
+            <div><i class="fas fa-file-alt" style="color:#1c6e4f; font-size:1.8rem;"></i> <br><strong>95+ publications</strong></div>
         </div>
-    </section>
+        <p style="margin-top:20px;">
+            <i class="fas fa-quote-left" style="color:#1c6e4f;"></i> 
+            Notre mission est de <strong>protéger les ressources génétiques nationales</strong>, d'améliorer la <strong>sécurité alimentaire</strong> et de contribuer au <strong>diagnostic médical</strong> par la maîtrise des outils de génomique et de bio-informatique.
+        </p>
+    </div>
+</section>
 
-    <!-- ========== RESEARCH ========== -->
-    <section id="research" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Axes de recherche</h2>
-            <div class="grid-2 mt-12">
-                <div class="card fade-up border-l-4 border-[#2A9D8F]">
-                    <div class="text-4xl mb-4 icon-green">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 21h16.5M12 3.75v10.5M6 12l6-6 6 6M6 12l-3 3m15-3l3 3"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold">Biodiversité & Agriculture durable</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Impact de la perte de biodiversité sur les agrosystèmes, caractérisation génétique des races locales (ovins, dromadaires, canins), conservation des ressources génétiques.</p>
-                    <button class="text-[#2A9D8F] font-semibold mt-4 open-modal" data-modal="modal1">En savoir plus →</button>
-                </div>
-                <div class="card fade-up border-l-4 border-[#00B4D8]">
-                    <div class="text-4xl mb-4 icon-teal">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6.75 6.75L21.75 6M12 3.75v10.5"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold">Sécurité alimentaire & Nutrition</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Lien entre diversité alimentaire, qualité nutritionnelle et santé des populations. Études sur le lait, la viande et les produits locaux.</p>
-                    <button class="text-[#00B4D8] font-semibold mt-4 open-modal" data-modal="modal2">En savoir plus →</button>
-                </div>
-                <div class="card fade-up border-l-4 border-[#FFB703] md:col-span-2">
-                    <div class="text-4xl mb-4 icon-accent">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold">Services écosystémiques & Santé humaine (One Health)</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">Bénéfices des écosystèmes pour la santé, approche One Health, intégration des données environnementales et génétiques pour la surveillance des pathogènes et la résilience des territoires.</p>
-                    <button class="text-[#FFB703] font-semibold mt-4 open-modal" data-modal="modal3">En savoir plus →</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ==================== ÉQUIPES ==================== -->
+<section id="equipes" style="background:#fafdfa;">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-people-arrows"></i> Nos 4 équipes de recherche</h2>
 
-    <!-- ========== TEAM ========== -->
-    <section id="team" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Notre équipe</h2>
-            <div class="flex flex-wrap gap-3 mt-6" id="filterContainer">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="directeur">Directeur</button>
-                <button class="filter-btn" data-filter="membre">Membres</button>
-                <button class="filter-btn" data-filter="collaborateur">Collaborateurs</button>
-            </div>
-            <div class="grid-3 mt-8" id="teamGrid"></div>
-            <p class="photo-note">Photos d'équipe : avatars générés à partir des noms en attendant vos vraies photos (voir note en fin de page pour les remplacer facilement).</p>
-        </div>
-    </section>
+        <div class="card-grid">
 
-    <!-- ========== PUBLICATIONS ========== -->
-    <section id="publications" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Publications</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Sélection de publications réelles du Pr. Gaouar et de ses co-auteurs (2015–2024), vérifiées sur Google Scholar, PubMed/DOI et les sites des éditeurs.</p>
-            <!-- Filtres publications -->
-            <div class="flex flex-wrap gap-3 mt-4">
-                <button class="filter-btn active" data-pubfilter="all">Toutes</button>
-                <button class="filter-btn" data-pubfilter="2024">2024</button>
-                <button class="filter-btn" data-pubfilter="2023">2023</button>
-                <button class="filter-btn" data-pubfilter="2021">2021</button>
-                <button class="filter-btn" data-pubfilter="2018">2018</button>
-                <button class="filter-btn" data-pubfilter="2016">2016</button>
-                <button class="filter-btn" data-pubfilter="2015">2015</button>
+            <!-- Équipe 1 -->
+            <div class="card">
+                <h3><i class="fas fa-paw"></i> GAM – Génétique animale & microorg.</h3>
+                <p class="chef"><i class="fas fa-user-tie"></i> Chef : Pr. Semir Bechir Suheil GAOUAR</p>
+                <p><span class="badge">H-index 12</span> <span class="badge">115 publications</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Enquêtes terrain, caractérisation morphologique</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Analyse par puce ADN, GBS, DD-RAD</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Microbiotes et agents pathogènes</li>
+                </ul>
+                <p style="margin-top:10px; font-size:0.9rem;"><strong>Membres :</strong> Tefiel H., Benzineb B., Houti N., Meghelli I., Kaouadji Z., Benyarou M., Belkhadem S., Benhamadi M., Belharfi F.Z., Labbaci M., Kidoud B., Kalai S.M., Haddam H.Y.</p>
             </div>
-            <div class="mt-8 space-y-6" id="pubList">
-                <div class="text-center text-gray-400">Chargement...</div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========== NEWS (Actualités) ========== -->
-    <section id="news" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Actualités</h2>
-            <div class="grid-3 mt-12" id="newsGrid">
-                <!-- Rempli par JS -->
+            <!-- Équipe 2 -->
+            <div class="card">
+                <h3><i class="fas fa-seedling"></i> GVM – Génétique végétale & microorg.</h3>
+                <p class="chef"><i class="fas fa-user-tie"></i> Chef : Dr. Amina BELLATRECHE (MCA)</p>
+                <p><span class="badge">H-index 2</span> <span class="badge">9 publications</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Inventaire des variétés locales</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Gènes d’adaptation, PAM (plantes aromatiques)</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Microbiome sol-plante</li>
+                </ul>
+                <p style="margin-top:10px; font-size:0.9rem;"><strong>Membres :</strong> Bouri A., Sidhoum M., Adjim Z., Abdelali O., Bouandas A., Selka S., Mkedder I., Abdelbari H.</p>
+            </div>
+
+            <!-- Équipe 3 -->
+            <div class="card">
+                <h3><i class="fas fa-user-md"></i> GHM – Génétique humaine & microorg.</h3>
+                <p class="chef"><i class="fas fa-user-tie"></i> Chef : Dr. Raouida MECIFI (MCA)</p>
+                <p><span class="badge">H-index 0</span> <span class="badge">1 publication</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Épidémiologie des maladies génétiques et zoonoses</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Polymorphismes, cytogénétique moléculaire</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Profils génétiques des cancers</li>
+                </ul>
+                <p style="margin-top:10px; font-size:0.9rem;"><strong>Membres :</strong> Bendahmane A.F., Triqui C., Kadour A.A., Benbarka L., Sari Hassoun C.S., Dich I.</p>
+            </div>
+
+            <!-- Équipe 4 -->
+            <div class="card">
+                <h3><i class="fas fa-database"></i> BAB – Big Data & Bioinformatique</h3>
+                <p class="chef"><i class="fas fa-user-tie"></i> Chef : Dr. Abdelkader AMEUR AMEUR (MCA)</p>
+                <p><span class="badge">H-index 3</span> <span class="badge">19 publications</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Analyse de données NGS, GWAS, signatures</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Bases de données « omics »</li>
+                    <li><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Docking moléculaire, pipelines bioinfo</li>
+                </ul>
+                <p style="margin-top:10px; font-size:0.9rem;"><strong>Membres :</strong> Gaouar A., Mokhtari I., Mahdad M.Y., Mediouni M.R.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ========== GALLERY ========== -->
-    <section id="gallery" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Galerie</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Emplacements prêts pour vos photos réelles (terrain, laboratoire, équipe, séminaires). Remplacez simplement les liens dans le code — voir la note en bas de page.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 gallery-grid" id="galleryGrid">
-                <img src="https://picsum.photos/seed/genapagie-lab1/400/300" alt="Photo à remplacer : terrain / élevage" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab2/400/300" alt="Photo à remplacer : équipe du laboratoire" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab3/400/300" alt="Photo à remplacer : travail de terrain" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab4/400/300" alt="Photo à remplacer : conférence / séminaire" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab5/400/300" alt="Photo à remplacer : analyses au laboratoire" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab6/400/300" alt="Photo à remplacer : prélèvement d'échantillons" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab7/400/300" alt="Photo à remplacer : races locales étudiées" class="rounded-xl shadow-md w-full h-48 object-cover">
-                <img src="https://picsum.photos/seed/genapagie-lab8/400/300" alt="Photo à remplacer : événement scientifique" class="rounded-xl shadow-md w-full h-48 object-cover">
+<!-- ==================== AXES DE RECHERCHE ==================== -->
+<section id="recherche">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-bullseye"></i> Axes de recherche & objectifs</h2>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px;">
+            <div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                <i class="fas fa-dna" style="color:#1c6e4f; font-size:2rem;"></i>
+                <h3 style="margin:10px 0 5px;">Génétique animale</h3>
+                <p>Gestion et amélioration des races locales, identification de gènes d'adaptation, résistance aux maladies.</p>
+            </div>
+            <div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                <i class="fas fa-leaf" style="color:#1c6e4f; font-size:2rem;"></i>
+                <h3 style="margin:10px 0 5px;">Génétique végétale</h3>
+                <p>Caractérisation des variétés locales, amélioration des rendements, valorisation des PAM et plantes steppiques.</p>
+            </div>
+            <div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                <i class="fas fa-heartbeat" style="color:#1c6e4f; font-size:2rem;"></i>
+                <h3 style="margin:10px 0 5px;">Génétique humaine</h3>
+                <p>Épidémiologie, diagnostic moléculaire, étude des polymorphismes liés aux cancers et maladies héréditaires.</p>
+            </div>
+            <div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                <i class="fas fa-microchip" style="color:#1c6e4f; font-size:2rem;"></i>
+                <h3 style="margin:10px 0 5px;">Bio-informatique & Big Data</h3>
+                <p>Analyse de génomes, GWAS, NGS, bases de données omics, docking moléculaire, intelligence artificielle.</p>
             </div>
         </div>
-    </section>
+        <div style="margin-top:30px; background:#eaf5ea; border-radius:12px; padding:20px;">
+            <p><strong>Objectifs stratégiques :</strong> Protéger le patrimoine génétique algérien, contribuer à l'autosuffisance alimentaire, renforcer la souveraineté nationale sur les ressources génétiques, et développer des outils de diagnostic de pointe.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- ========== CONTACT ========== -->
-    <section id="contact" class="py-20 bg-[#E9ECEF] dark:bg-[#151a26]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold h2-underline">Contact</h2>
-            <div class="grid md:grid-cols-2 gap-12 mt-12">
-                <form class="card border-l-4 border-[#2A9D8F]" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
-                    <input type="hidden" name="subject" value="Nouveau message via GenApAgiE">
-                    <div>
-                        <label class="block text-sm font-medium">Nom complet</label>
-                        <input type="text" name="name" required class="w-full mt-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#1a1f2e]">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Email</label>
-                        <input type="email" name="email" required class="w-full mt-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#1a1f2e]">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Sujet</label>
-                        <select name="sujet" class="w-full mt-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#1a1f2e]">
-                            <option>Collaboration scientifique</option>
-                            <option>Information</option>
-                            <option>Recrutement / Stage</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Message</label>
-                        <textarea name="message" rows="4" required class="w-full mt-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#1a1f2e]"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full text-center">Envoyer</button>
-                </form>
-                <div class="space-y-6">
-                    <div class="card border-l-4 border-[#FFB703]">
-                        <h3 class="text-xl font-semibold">Coordonnées</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mt-2">
-                            <strong>Laboratoire GenApAgiE</strong><br>
-                            Université Abou Bekr Belkaïd de Tlemcen<br>
-                            Algérie
-                        </p>
-                        <p class="mt-2"><strong>Téléphone :</strong> <a href="tel:+213559304276" class="text-[#2A9D8F] hover:underline">+213 (0)559 30 42 76</a></p>
-                        <p><strong>Email :</strong> <a href="mailto:suheilgaouar@gmail.com" class="text-[#2A9D8F] hover:underline">suheilgaouar@gmail.com</a></p>
-                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                            <strong>Directeur :</strong> Professeur Semir Bechir Suheil Gaouar
-                        </p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.154865664798!2d-1.335985684600116!3d34.88369548037004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7b7b7b8b8b8b8b%3A0x0!2sUniversit%C3%A9%20Abou%20Bekr%20Belka%C3%AFd%20Tlemcen!5e0!3m2!1sfr!2sdz!4v1612345678901" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
+<!-- ==================== PUBLICATIONS (extrait) ==================== -->
+<section id="publications" style="background:#fafdfa;">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-file-pdf"></i> Publications marquantes</h2>
+        <div class="pub-item">
+            <a href="https://doi.org/10.1371/journal.pone.0122667" target="_blank">Admixture and Local Breed Marginalization Threaten Algerian Sheep Diversity</a> – PLoS ONE, 2015.
+        </div>
+        <div class="pub-item">
+            <a href="https://doi.org/10.1038/s41598-019-44137-y" target="_blank">Genetic homogenization of indigenous sheep breeds in Northwest Africa</a> – Scientific Reports, 2019.
+        </div>
+        <div class="pub-item">
+            <a href="https://doi.org/10.3390/genes11080932" target="_blank">Fifteen Shades of Grey: Combined Analysis of Genome-Wide SNP Data in Steppe and Mediterranean Grey Cattle</a> – Genes, 2020.
+        </div>
+        <div class="pub-item">
+            <a href="https://doi.org/10.3201/eid2406.172007" target="_blank">Prion Disease in Dromedary Camels, Algeria</a> – Emerging Infectious Diseases, 2018.
+        </div>
+        <p style="margin-top:15px;"><i class="fas fa-arrow-right"></i> Consultez toutes les publications sur <a href="https://www.researchgate.net/profile/Semir_Bechir_Suheil_Gaouar" target="_blank">ResearchGate</a> et <a href="https://scholar.google.com/citations?user=s-e_ussAAAAJ&hl=fr" target="_blank">Google Scholar</a>.</p>
+    </div>
+</section>
+
+<!-- ==================== ÉQUIPEMENTS ==================== -->
+<section id="equipements">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-microscope"></i> Équipements scientifiques</h2>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+            <div>
+                <h3><i class="fas fa-check-circle" style="color:#1c6e4f;"></i> Disponibles</h3>
+                <ul class="two-col-list">
+                    <li><i class="fas fa-circle"></i> Thermocycleur</li>
+                    <li><i class="fas fa-circle"></i> Cuve électrophorèse horizontale</li>
+                    <li><i class="fas fa-circle"></i> Table UV, micropipettes</li>
+                    <li><i class="fas fa-circle"></i> Autoclave, bain-marie</li>
+                    <li><i class="fas fa-circle"></i> Microscope optique</li>
+                </ul>
+            </div>
+            <div>
+                <h3><i class="fas fa-plus-circle" style="color:#1c6e4f;"></i> À acquérir (projet)</h3>
+                <ul class="two-col-list">
+                    <li><i class="fas fa-circle"></i> Séquenceur NGS (Ion GeneStudio S5)</li>
+                    <li><i class="fas fa-circle"></i> PCR en temps réel (QuantStudio 7)</li>
+                    <li><i class="fas fa-circle"></i> Cytomètre en flux (Gallios)</li>
+                    <li><i class="fas fa-circle"></i> Spectrophotomètres (NanoDrop, Multiskan)</li>
+                    <li><i class="fas fa-circle"></i> Serveur Big Data (Core i7, 16 Go RAM)</li>
+                </ul>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer bg-[#0A2540] text-white py-12">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-        <div>
-            <h4 class="font-bold text-lg text-[#2A9D8F]">GenApAgiE</h4>
-            <p class="text-gray-400 text-sm mt-2">Applied Genetic in Agriculture, Ecology and Public Health</p>
-            <p class="text-gray-500 text-xs mt-1">Université de Tlemcen – Algérie</p>
+<!-- ==================== PROJETS & COLLABORATIONS ==================== -->
+<section id="projets" style="background:#fafdfa;">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-handshake"></i> Projets & collaborations internationales</h2>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:15px;">
+            <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                <i class="fas fa-camel" style="color:#1c6e4f; font-size:1.5rem;"></i>
+                <p><strong>CARAVAN (ARIMNET2)</strong> – Valorisation du dromadaire</p>
+            </div>
+            <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                <i class="fas fa-cow" style="color:#1c6e4f; font-size:1.5rem;"></i>
+                <p><strong>GALIMED (UE-INRA)</strong> – Ressources bovines méditerranéennes</p>
+            </div>
+            <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                <i class="fas fa-globe-africa" style="color:#1c6e4f; font-size:1.5rem;"></i>
+                <p><strong>UA-BIRA</strong> – Projets avec l’Union Africaine</p>
+            </div>
+            <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                <i class="fas fa-university" style="color:#1c6e4f; font-size:1.5rem;"></i>
+                <p>Collaborations avec INRA, Univ. Bari, IZS Sicile/Rome, Nottingham, etc.</p>
+            </div>
         </div>
-        <div>
-            <h4 class="font-bold text-lg">Liens</h4>
-            <ul class="space-y-1 text-sm mt-2">
-                <li><a href="#research" class="text-gray-400 hover:text-white">Recherche</a></li>
-                <li><a href="#team" class="text-gray-400 hover:text-white">Équipe</a></li>
-                <li><a href="#publications" class="text-gray-400 hover:text-white">Publications</a></li>
-                <li><a href="#news" class="text-gray-400 hover:text-white">Actualités</a></li>
-                <li><a href="#gallery" class="text-gray-400 hover:text-white">Galerie</a></li>
-            </ul>
+    </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-address-card"></i> Contact & direction</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:30px; background:#fff; border-radius:12px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+            <div style="flex:1;">
+                <p><strong><i class="fas fa-user-tie"></i> Directeur :</strong> Pr. Semir Bechir Suheil GAOUAR</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:suheilgaouar@gmail.com">suheilgaouar@gmail.com</a></p>
+                <p><i class="fas fa-phone-alt"></i> +213 (0)559 30 42 76</p>
+                <p><i class="fas fa-map-pin"></i> Université de Tlemcen, Nouveau Pôle, Algérie</p>
+                <p><i class="fab fa-researchgate"></i> <a href="https://www.researchgate.net/profile/Semir_Bechir_Suheil_Gaouar" target="_blank">ResearchGate</a></p>
+                <p><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=s-e_ussAAAAJ&hl=fr" target="_blank">Google Scholar</a></p>
+            </div>
+            <div style="flex:1; border-left:2px solid #d0e8d0; padding-left:25px;">
+                <h4>Références administratives</h4>
+                <p>Faculté SNV, Université de Tlemcen<br>
+                Laboratoire GenApAgiE – Génétique appliquée en Agronomie, écologie et santé publique</p>
+                <p><i class="fas fa-calendar-alt"></i> Création : 2021</p>
+            </div>
         </div>
-        <div>
-            <h4 class="font-bold text-lg">Revue</h4>
-            <ul class="space-y-1 text-sm mt-2">
-                <li><a href="https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ" target="_blank" class="text-gray-400 hover:text-white">Genetics and Biodiversity Journal</a></li>
-                <li class="text-gray-500 text-xs">ISSN 2588-185X — dirigée par le Pr. Gaouar</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-lg">Profils scientifiques</h4>
-            <ul class="space-y-1 text-sm mt-2">
-                <li><a href="https://scholar.google.com/citations?user=s-e_ussAAAAJ&hl=fr" target="_blank" class="text-gray-400 hover:text-white">Google Scholar</a></li>
-                <li><a href="https://tlemcenuniv.academia.edu/SemirBechirSuheilGaouar" target="_blank" class="text-gray-400 hover:text-white">Academia.edu</a></li>
-            </ul>
-            <p class="text-gray-500 text-xs mt-4">© 2025 GenApAgiE – UABT Tlemcen</p>
-        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 – Laboratoire GenApAgiE – Université Abou Bekr Belkaïd de Tlemcen</p>
+        <p style="font-size:0.85rem; opacity:0.8;">
+            <i class="fas fa-code"></i> Site généré à partir du canva officiel de création – DGRSDT 2020
+        </p>
     </div>
 </footer>
 
-<!-- ========== MODALS ========== -->
-<div class="modal-overlay" id="modal1"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#2A9D8F]">Biodiversité & Agriculture durable</h3><p class="mt-4">Nous utilisons des approches de <strong>GWAS</strong> et de <strong>phylogéographie</strong> pour caractériser la diversité génétique des races ovines, dromadaires et canines algériennes. Nos travaux visent à identifier des marqueurs de résilience face aux changements climatiques et à proposer des stratégies de conservation intégrées aux agrosystèmes locaux.</p></div></div>
-<div class="modal-overlay" id="modal2"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#00B4D8]">Sécurité alimentaire & Nutrition</h3><p class="mt-4">Nous étudions le lien entre la diversité des races locales, la composition nutritionnelle des produits (lait, viande) et la santé des consommateurs. Nos recherches intègrent des analyses <strong>métagénomiques</strong> du microbiote alimentaire et des approches d'<strong>épidémiologie nutritionnelle</strong> pour éclairer les politiques de sécurité alimentaire en Algérie.</p></div></div>
-<div class="modal-overlay" id="modal3"><div class="modal-content"><button class="modal-close close-modal">&times;</button><h3 class="text-2xl font-bold text-[#FFB703]">Services écosystémiques & One Health</h3><p class="mt-4">Notre approche <strong>One Health</strong> intègre des données environnementales, génétiques et épidémiologiques pour évaluer les bénéfices des écosystèmes méditerranéens sur la santé humaine. Nous développons des outils de surveillance des pathogènes émergents (via eDNA et métabarcoding) et des modèles de résilience territoriale en collaboration avec la FAO et AfricaBP.</p></div></div>
-
-<script>
-    // ============================================================
-    // CONFIGURATION
-    // ============================================================
-    const CONTACT_EMAIL = "suheilgaouar@gmail.com";
-    const CONTACT_PHONE = "+213 (0)559 30 42 76";
-
-    // ============================================================
-    // DONNÉES ÉQUIPE
-    // ============================================================
-    const teamMembers = [
-        { id:1, name:"Pr. Semir Bechir Suheil Gaouar", title:"Directeur – Professeur de Génétique des Populations", category:"directeur", email:"suheilgaouar@gmail.com", orcid:"", bio:"Rédacteur en chef du Genetics and Biodiversity Journal" },
-        { id:2, name:"Youssouf Hadi Haddam", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
-        { id:3, name:"Imene MEGHILI", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
-        { id:4, name:"Sidi Mohammed KALAI", title:"Membre du laboratoire", category:"membre", email:"", orcid:"" },
-        { id:5, name:"Noureddine Azzi", title:"Collaborateur", category:"collaborateur", email:"", orcid:"" },
-        { id:6, name:"Habiba Drici", title:"Collaboratrice", category:"collaborateur", email:"", orcid:"" }
-    ];
-
-    // ============================================================
-    // PUBLICATIONS RÉELLES — vérifiées via Google Scholar, Academia.edu,
-    // ResearchGate, MDPI et les sites des éditeurs (recherche web, sept. 2026).
-    // Vérifiez et complétez les DOI manquants sur Google Scholar avant mise en ligne.
-    // ============================================================
-    const publications = [
-        {
-            title:"Admixture and Local Breed Marginalization Threaten Algerian Sheep Diversity",
-            authors:"Gaouar S.B.S., Kdidi S., Tabet-Aoul N., et al.",
-            journal:"PLOS ONE",
-            year:2015,
-            link:"https://tlemcenuniv.academia.edu/SemirBechirSuheilGaouar"
-        },
-        {
-            title:"Dietary fat intake, micronutrient and obesity among adolescents in Tlemcen (western Algeria)",
-            authors:"Mahdad Moustafa Yassine, Gaouar S.B.S., Harek D., Boumedienne M.B., Belbraouet S.",
-            journal:"Food and Nutrition Science",
-            year:2015,
-            doi:"10.4236/fns.2015.610090",
-            link:"https://doi.org/10.4236/fns.2015.610090"
-        },
-        {
-            title:"Estimating population structure and genetic diversity of five Moroccan sheep breeds by microsatellite markers",
-            authors:"Gaouar S.B.S., Kdidi S., Ouragh L.",
-            journal:"Small Ruminant Research",
-            year:2016,
-            link:"https://www.researchgate.net/profile/Semir-Bechir-Suheil-Gaouar"
-        },
-        {
-            title:"Prion disease in dromedary camels, Algeria",
-            authors:"Babelhadj B., Di Bari M.A., Pirisinu L., Chiappini B., Gaouar S.B.S., et al.",
-            journal:"Emerging Infectious Diseases",
-            year:2018,
-            volume:"24(6):1029",
-            link:"https://wwwnc.cdc.gov/eid/article/24/6/17-2007_article"
-        },
-        {
-            title:"Genetic diversity status of camel's resources (Camelus dromedarius) in Algeria",
-            authors:"Gaouar S.B.S., Arbouche F.",
-            journal:"Genetics & Biodiversity Journal",
-            year:2021,
-            volume:"Vol. 5",
-            link:"https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ/en/article/view/87"
-        },
-        {
-            title:"An Overview of Camel Biodiversity and Genetics",
-            authors:"Gaouar S.B.S., Ciani E.",
-            journal:"Biology and Life Sciences Forum",
-            year:2023,
-            volume:"22(1):15",
-            doi:"10.3390/blsf2023022015",
-            link:"https://doi.org/10.3390/blsf2023022015"
-        },
-        {
-            title:"Morphometric characterization of the local highlands' dogs in West Cameroon",
-            authors:"Diffo Fokou P., Hako Touko B.A., Haddam Y.H., Gaouar S.B.S., et al.",
-            journal:"Genetics & Biodiversity Journal",
-            year:2024,
-            volume:"Vol. 8 No. 2",
-            link:"https://journals.univ-tlemcen.dz/GABJ/index.php/GABJ"
-        },
-        {
-            title:"Genetic homogenization of indigenous sheep breeds in Northwest Africa (jeu de données)",
-            authors:"Belabdi I., Ouhrouch A., Lafri M., Gaouar S.B.S., Ciani E., et al.",
-            journal:"Dryad (dépôt de données)",
-            year:2019,
-            doi:"10.5061/dryad.24p1k82",
-            link:"https://doi.org/10.5061/dryad.24p1k82"
-        }
-    ];
-
-    // ============================================================
-    // ACTUALITÉS (NEWS) — à adapter à vos événements réels
-    // ============================================================
-    const newsItems = [
-        { title:"4ème Conférence nationale sur la génétique des populations", date:"Avril 2023", desc:"Événement présidé par le Pr. Gaouar, réunissant les chercheurs algériens.", image:"https://picsum.photos/seed/genapagie-news1/600/400" },
-        { title:"8ème Séminaire international – Préservation du Sloughi", date:"Mai 2022", desc:"Séminaire dédié à la conservation des races canines nord-africaines.", image:"https://picsum.photos/seed/genapagie-news2/600/400" },
-        { title:"1ère Conférence nationale NHSAM", date:"Juin 2024", desc:"Nutrition, Health, Sustainability and Agroecosystems in the Mediterranean.", image:"https://picsum.photos/seed/genapagie-news3/600/400" }
-    ];
-
-    // ============================================================
-    // FONCTIONS
-    // ============================================================
-    function renderTeam(filter='all') {
-        const grid = document.getElementById('teamGrid');
-        const filtered = filter==='all' ? teamMembers : teamMembers.filter(m=>m.category===filter);
-        grid.innerHTML = filtered.map((m,i)=>{
-            const isDirector = m.category==='directeur';
-            const cardClass = isDirector ? 'card col-span-1 md:col-span-2 border-l-4 border-[#FFB703] bg-[#FFB703]/10 dark:bg-[#FFB703]/20' : 'card';
-            return `
-                <div class="${cardClass} fade-up" style="transition-delay:${i*0.05}s">
-                    <div class="flex items-center gap-4">
-                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=0A2540&color=fff&size=64" alt="${m.name}" class="w-16 h-16 rounded-full">
-                        <div>
-                            <h4 class="text-lg font-bold">${m.name}</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">${m.title}</p>
-                            ${m.bio ? `<p class="text-xs text-[#FFB703] mt-0.5">${m.bio}</p>` : ''}
-                            <div class="flex gap-2 mt-1 text-xs">
-                                ${m.email ? `<a href="mailto:${m.email}" class="text-[#2A9D8F] hover:underline">✉️</a>` : ''}
-                                ${m.orcid ? `<a href="https://orcid.org/${m.orcid}" target="_blank" class="text-[#2A9D8F] hover:underline">ORCID</a>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-        observeFade();
-    }
-
-    function renderPublications(filterYear='all') {
-        const container = document.getElementById('pubList');
-        const filtered = filterYear==='all' ? publications : publications.filter(p=>p.year==parseInt(filterYear));
-        if (filtered.length===0) {
-            container.innerHTML = `<div class="text-center text-gray-400">Aucune publication pour cette année.</div>`;
-            return;
-        }
-        container.innerHTML = filtered.map(p=>{
-            const authorsHtml = p.authors.replace(/Gaouar/g, '<strong>Gaouar</strong>');
-            const meta = [p.journal, p.volume, p.year].filter(Boolean).join(' · ');
-            return `
-            <div class="card fade-up border-l-4 border-[#FFB703]">
-                <h3 class="text-lg font-bold">${p.title}</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300">${authorsHtml}</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${meta}</p>
-                <a href="${p.link}" target="_blank" rel="noopener" class="text-[#2A9D8F] text-sm font-semibold">${p.doi ? 'DOI →' : 'Voir la source →'}</a>
-            </div>
-        `;}).join('');
-        observeFade();
-    }
-
-    function renderNews() {
-        const grid = document.getElementById('newsGrid');
-        grid.innerHTML = newsItems.map((item,i)=>`
-            <div class="card fade-up border-l-4 border-[#00B4D8] overflow-hidden p-0">
-                <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="bg-[#00B4D8] text-white text-xs font-bold px-3 py-1 rounded-full">${item.date}</span>
-                    </div>
-                    <h3 class="text-xl font-bold">${item.title}</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mt-2">${item.desc}</p>
-                </div>
-            </div>
-        `).join('');
-        observeFade();
-    }
-
-    // ============================================================
-    // STATS ANIMÉES
-    // ============================================================
-    function animateStats() {
-        document.querySelectorAll('.stat-number').forEach(el => {
-            const target = parseInt(el.dataset.target);
-            const duration = 2000;
-            const start = performance.now();
-            const step = (time) => {
-                const progress = Math.min((time - start)/duration, 1);
-                const value = Math.floor(progress * target);
-                el.textContent = value.toLocaleString('fr-FR');
-                if (progress < 1) requestAnimationFrame(step);
-                else el.textContent = target.toLocaleString('fr-FR');
-            };
-            requestAnimationFrame(step);
-        });
-    }
-
-    // ============================================================
-    // OBSERVER SCROLL
-    // ============================================================
-    function observeFade() {
-        document.querySelectorAll('.fade-up').forEach(el => {
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold:0.2 });
-            obs.observe(el);
-        });
-        const statsSection = document.querySelector('.stat-item');
-        if (statsSection) {
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if(e.isIntersecting) { animateStats(); obs.unobserve(e.target); } });
-            }, { threshold:0.2 });
-            obs.observe(statsSection);
-        }
-    }
-
-    // ============================================================
-    // MODALES
-    // ============================================================
-    document.querySelectorAll('.open-modal').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.getElementById(this.dataset.modal).classList.add('active');
-        });
-    });
-    document.querySelectorAll('.close-modal, .modal-overlay').forEach(el => {
-        el.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal')) {
-                this.closest('.modal-overlay').classList.remove('active');
-            }
-        });
-    });
-
-    // ============================================================
-    // DARK MODE
-    // ============================================================
-    const darkToggle = document.getElementById('darkToggle');
-    const darkIcon = document.getElementById('darkIcon');
-    darkToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        darkIcon.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
-    });
-
-    // ============================================================
-    // HAMBURGER
-    // ============================================================
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('open');
-    });
-    document.querySelectorAll('#navMenu a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('open');
-        });
-    });
-
-    // ============================================================
-    // FILTRES
-    // ============================================================
-    document.querySelectorAll('#filterContainer .filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('#filterContainer .filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            renderTeam(this.dataset.filter);
-        });
-    });
-    document.querySelectorAll('[data-pubfilter]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('[data-pubfilter]').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            renderPublications(this.dataset.pubfilter);
-        });
-    });
-
-    // ============================================================
-    // INIT
-    // ============================================================
-    renderTeam('all');
-    renderPublications('all');
-    renderNews();
-    observeFade();
-
-    // ============================================================
-    // NOTE IMPORTANTE :
-    // 1) Les photos (galerie, actualités) utilisent des images génériques
-    //    (picsum.photos) en attendant vos vraies photos. Remplacez chaque
-    //    "src" par le lien de votre propre photo (ex: uploadée sur votre
-    //    hébergement GitHub Pages dans un dossier /images/).
-    // 2) La liste "publications" ci-dessus contient des travaux réels où
-    //    le Pr. Gaouar apparaît comme auteur, vérifiés via Google Scholar,
-    //    Academia.edu et les sites des éditeurs. Complétez les DOI manquants
-    //    et ajoutez vos publications les plus récentes depuis votre profil
-    //    Google Scholar : https://scholar.google.com/citations?user=s-e_ussAAAAJ
-    // 3) Le formulaire de contact utilise Web3Forms : remplacez
-    //    "VOTRE_CLE_WEB3FORMS" par votre clé gratuite obtenue sur
-    //    https://web3forms.com pour recevoir les messages par email.
-    // ============================================================
-</script>
 </body>
 </html>
